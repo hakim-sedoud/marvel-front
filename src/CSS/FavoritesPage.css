@@ -1,0 +1,97 @@
+/* favorite.css */
+.disconnected {
+      background-color: #282c34; 
+height: 100vh;  
+}
+/* Container principal pour les favoris */
+.favorite-container {
+    padding-top: 30px; 
+    background-color: #282c34; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+h1 {
+    color: #fff;
+    padding: 20px;
+    font-size: 40px;
+}
+/* Container pour les personnages et les comics favoris */
+.favorite-characters-container, 
+.favorite-comic-container {
+    display: flex;
+    flex-direction: column; 
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 30px;
+}
+.favorite-card-container {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* Lien enveloppant chaque carte de favori */
+.favorite-card-link {
+    text-decoration: none; 
+    color: inherit; 
+    width: 200px;
+    transition: transform 0.3s; 
+}
+
+/* Style de chaque carte de favori */
+.favorite-card {
+    flex: 1 1 200px; 
+    border: 2px solid red;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.favorite-card::before {
+    content: "FAVORI";
+    font-family: 'Arial', sans-serif; 
+    font-size: 40px;
+    color: rgba(255, 0, 0, 0.2); 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg); 
+    z-index: -1; 
+}
+
+/* Style de l'image du favori */
+.favorite-card img {
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Effet au survol d'une carte */
+.favorite-card-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); 
+}
+
+/* Style pour le titre du favori */
+.favorite-card h2 {
+    margin: 10px 0;
+    color: red; 
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

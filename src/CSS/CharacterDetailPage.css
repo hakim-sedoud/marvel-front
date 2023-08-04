@@ -1,0 +1,101 @@
+/* CharacterDetailPage.css */
+
+.character-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px; /* Ajoute un espace en haut pour compenser la hauteur du header */
+    background-color: #282c34; /* Fond sombre pour un effet "comics" */
+  }
+  
+  .character-container img {
+    max-width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .character-container h2 {
+    color: white; /* Titre en blanc */
+    margin: 10px 0;
+    font-size: 24px;
+  }
+  .character-container h3 {
+    color: white; /* Titre en blanc */
+    margin: 10px 0;
+    font-size: 24px;
+  }
+  
+  .character-container p {
+    font-size: 16px;
+    color: white; /* Description en blanc */
+    margin-bottom: 20px; /* Ajoute une marge en bas pour séparer les éléments */
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  /* Style pour la liste des comics */
+  .comics-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+  }
+  
+  /* Style de chaque carte de comic */
+  .comic-card {
+    border: 2px solid red; /* Bordure rouge typique de Marvel */
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  
+  .comic-card::before {
+    content: "MARVEL";
+    font-family: 'Arial', sans-serif; /* Vous pouvez utiliser une autre police qui évoque l'univers Marvel si vous en avez une */
+    font-size: 20px;
+    color: rgba(255, 0, 0, 0.2); /* Légèrement transparent pour ne pas dominer le contenu */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg); /* Centrage et légère rotation */
+    z-index: -1; /* Pour qu'il soit en arrière-plan */
+  }
+  
+  /* Style de l'image du comic */
+  .comic-card img {
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style pour le titre du comic */
+  .comic-card p {
+    margin: 10px 0;
+    color: red; /* Titre rouge */
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Effet au survol d'une carte de comic */
+  .comic-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+  }
+  .fav-button {
+    margin-bottom: 20px;
+  }

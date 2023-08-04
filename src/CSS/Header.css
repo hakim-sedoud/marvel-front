@@ -1,0 +1,48 @@
+header {
+    background-color: #282c34; /* Ajustez cette valeur si votre en-tête a une couleur différente */
+    padding: 20px 0; /* Ajustez la valeur de padding selon vos besoins */
+    border-bottom: 2px solid white;
+    height: 60px;
+}
+header img {
+    height: 70px; /* Ajuste la hauteur de l'image pour qu'elle occupe toute la hauteur du header */
+    object-fit: contain; /* Utilise "contain" pour que l'image conserve ses proportions tout en rentrant dans la zone spécifiée */
+}
+header > div {
+    max-width: 1200px; /* Ajustez selon la largeur souhaitée */
+    margin: 0 auto; /* Centrage horizontal */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 20px; /* Marge à gauche */
+    padding-right: 20px; /* Marge à droite */
+}
+
+nav {
+    display: flex;
+    gap: 20px; /* Espace entre les liens */
+}
+
+nav a {
+    text-decoration: none;
+    color: white; /* Couleur du texte des liens */
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: red; /* Couleur du texte des liens lors du survol */
+}
+
+button {
+    padding: 5px 15px;
+    background-color: red; /* Ajustez la couleur de fond selon vos préférences */
+    border: none;
+    border-radius: 5px;
+    color: white; /* Couleur du texte du bouton */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: darkred; /* Une nuance plus foncée de rouge pour le survol */
+}

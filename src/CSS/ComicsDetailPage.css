@@ -1,0 +1,32 @@
+/* ComicsDetailPage.css */
+.comicsDetail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #282c34;
+    color: white;
+    text-align: center;
+  }
+  
+  .comicsDetail-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .comicsDetail-container img {
+    max-width: 500px;
+    height: auto;
+    max-height: 600px; 
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .comicsDetail-container p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .fav-button {
+    margin-top: 20px;
+  }

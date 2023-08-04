@@ -1,0 +1,105 @@
+/* comics.css */
+
+/* Container principal pour les comics */
+div .comics-container {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 30px; 
+    background-color: #282c34; 
+}
+
+/* Lien enveloppant chaque carte */
+.comics-card-link {
+    text-decoration: none; /* Retire le soulignement du lien */
+    color: inherit; /* Hérite la couleur du texte du parent */
+    width: 200px;
+    transition: transform 0.3s; /* Effet de transition pour le survol */
+}
+
+/* Style de chaque carte de comic */
+.comics-card {
+    flex: 1 1 200px; /* Utiliser flex au lieu de width pour le dimensionnement */
+    border: 2px solid red; /* Bordure rouge typique de Marvel */
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.comics-card::before {
+    content: "MARVEL";
+    font-family: 'Arial', sans-serif; /* Vous pouvez utiliser une autre police qui évoque l'univers Marvel si vous en avez une */
+    font-size: 40px;
+    color: rgba(255, 0, 0, 0.2); /* Légèrement transparent pour ne pas dominer le contenu */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg); /* Centrage et légère rotation */
+    z-index: -1; /* Pour qu'il soit en arrière-plan */
+}
+
+/* Style de l'image du comic */
+.comics-card img {
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Effet au survol d'une carte */
+.comics-card-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+}
+
+/* Style pour le titre du comic */
+.comics-card h3 {
+    margin: 10px 0;
+    color: red; /* Titre rouge */
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Description du comic */
+.comics-card p {
+    font-size: 14px;
+    color: #333;
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* Style de la barre de recherche */
+.search-bar {
+    padding: 10px 20px;
+    width: 80%; /* 80% de la largeur de son conteneur, mais vous pouvez ajuster selon vos besoins */
+    margin: 20px auto;
+    display: block;
+    font-size: 16px;
+    border: 2px solid red; /* Bordure rouge typique de Marvel */
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.search-bar:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05); /* légère augmentation de taille lors de la mise au point */
+}
