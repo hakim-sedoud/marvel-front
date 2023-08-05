@@ -37,7 +37,7 @@ function App() {
     event.preventDefault();
 
     try {
-        const response = await axios.post('http://site--marvel--8bd4m7bpgzgn.code.run/login', {  
+        const response = await axios.post('https://site--marvel--8bd4m7bpgzgn.code.run/login', {  
             email: email,
             password: password
         });
@@ -59,7 +59,7 @@ function App() {
       event.preventDefault();
   
       try {
-          const response = await axios.post('http://site--marvel--8bd4m7bpgzgn.code.run/signup', {
+          const response = await axios.post('https://site--marvel--8bd4m7bpgzgn.code.run/signup', {
               email: email,
               password: password
           });
