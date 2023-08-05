@@ -91,7 +91,7 @@ const FavoritesPage = () => {
 <div className="favorite-card-container">
 
     {favoriteComics.map((comic) => (
-        <Link to={`/comic/${comic._id}`} key={comic.id} className="favorite-card-link">
+        <Link to={`/comic/${comic.id}`} key={comic.id} className="favorite-card-link">
             <div className="favorite-card">
             <img src={`${comic.thumbnail}.${comic.extension}`} alt={comic.name} />
                 <h2>{comic.name}</h2>
