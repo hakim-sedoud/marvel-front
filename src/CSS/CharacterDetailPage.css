@@ -51,6 +51,7 @@
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
   transition: all 0.5s;
   margin-bottom: 15px;
+  width: 200px;
 }
 
 .comic-card::before {
