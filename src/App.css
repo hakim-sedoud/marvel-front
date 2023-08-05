@@ -14,3 +14,6 @@ html, body {
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* IE and Edge */
 }
+link,a {
+    text-decoration: none;
+}

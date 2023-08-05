@@ -63,7 +63,6 @@ h1 {
 }
 
 .favorite-card::before {
-    content: "FAVORI";
     font-family: 'Arial', sans-serif; 
     font-size: 40px;
     color: rgba(255, 0, 0, 0.2); 
