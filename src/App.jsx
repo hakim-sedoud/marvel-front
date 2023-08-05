@@ -1,6 +1,6 @@
 import { useState , useEffect} from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import './App.css'
+import './App.css'
 import Cookies from 'js-cookie';
 import Header from './components/Header';
 import LoginModal from '../src/components/LoginModal';
@@ -86,14 +86,16 @@ function App() {
     setIsModalSing={setIsModalSing} 
     isLoggedIn={isLoggedIn}
     handleLogout={handleLogout} 
-/>      <Routes>
+/>   
+<div className='background-all'>
+<Routes>
         <Route path="/"element={<CharactersPage />}/>
         <Route path="/character/:characterId" element={<CharacterDetailPage     setIsModalLogin={setIsModalLogin} />}/>
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/comics" element={<ComicsPage/>} />
         <Route path="/comic/:comicId" element={<ComicsDetailPage     setIsModalLogin={setIsModalLogin} />}/> 
         <Route exact path="/comics/:characterId" component={<CharacterComicsPage/>} /> 
-      </Routes>
+</Routes>
         {isModalLogin && <LoginModal 
         isOpen={isModalLogin} 
         onSwitch={() => {setIsModalSing(true); setIsModalLogin(false)}} 
@@ -106,6 +108,8 @@ function App() {
         onSwitch={() => {setIsModalSing(false); setIsModalLogin(true)}} 
         onClose={() => setIsModalSing(false)} 
         handleSignupSubmit={handleSignupSubmit}/>}
+  </div>   
+
       </Router>
     </>
   )

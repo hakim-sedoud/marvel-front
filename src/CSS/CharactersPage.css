@@ -4,7 +4,7 @@
     justify-content: center;
     gap: 20px;
     padding-top: 30px; 
-    background-color: #282c34; 
+    /* background: "linear-gradient(to right, red, blue)" */
 }
 
 .character-card-link {
@@ -16,30 +16,21 @@
 
 
 .character-card {
-    border: 2px solid red; 
+    border: 2px solid gold; 
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 15px;
     text-align: center;
-    background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    background: #232323;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: all 0.5s;
 }
 
-.character-card::before {
-    content: "MARVEL";
-    font-family: 'Arial', sans-serif; 
-    font-size: 40px;
-    color: rgba(255, 0, 0, 0.2); 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-30deg); 
-    z-index: -1; 
-}
+
 
 .character-card img {
     max-width: 100%;
@@ -50,15 +41,24 @@
 }
 
 
-.character-card-link:hover {
+.character-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    color: #282c34;
+    background-position: left;
+    transform: scale(1.05); 
+    background: linear-gradient(45deg, #3a3a3a 25%, #4d4d4d 50%, #3a3a3a 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1s ;
 }
-
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
 
 .character-card h2 {
     margin: 10px 0;
-    color: red; 
+    color: white; 
     height: 40px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -80,7 +80,7 @@
 
 .page-button-container {
     text-align: center;
-    background-color: #282c34; 
+    /* background-color: #282c34;  */
     padding: 20px;
 }
 
@@ -136,7 +136,7 @@
 
 @media (max-width: 768px) {
     .search-bar {
-        width: 95%;
+        width: 80%;
         margin: 15px auto;
     }
 
@@ -145,7 +145,7 @@
     }
 
     .character-card {
-        height: 300px;
+        height: 200px;
     }
 
     .character-card img {

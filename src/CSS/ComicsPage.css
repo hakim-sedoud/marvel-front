@@ -6,7 +6,6 @@ div .comics-container {
     justify-content: center;
     gap: 20px;
     padding-top: 30px; 
-    background-color: #282c34; 
 }
 
 
@@ -19,23 +18,21 @@ div .comics-container {
 
 
 .comics-card {
-    flex: 1 1 200px;
-    border: 2px solid red; 
+    border: 2px solid gold; 
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 15px;
     text-align: center;
-    background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    background: #232323;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: all 0.5s;
 }
 
 .comics-card::before {
-    content: "MARVEL";
-    font-family: 'Arial', sans-serif; 
     font-size: 40px;
     color: rgba(255, 0, 0, 0.2); 
     position: absolute;
@@ -55,15 +52,25 @@ div .comics-container {
 }
 
 
-.comics-card-link:hover {
+.comics-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    color: #282c34;
+    background-position: left;
+    transform: scale(1.05); 
+    background: linear-gradient(45deg, #3a3a3a 25%, #4d4d4d 50%, #3a3a3a 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1s infinite;
 }
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
 
 
 .comics-card h3 {
     margin: 10px 0;
-    color: red; 
+    color: white; 
     height: 40px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -103,7 +110,7 @@ div .comics-container {
 
 @media (max-width: 768px) {
     .search-bar {
-        width: 95%;
+        width: 80%;
         margin: 15px auto;
     }
 
@@ -112,7 +119,7 @@ div .comics-container {
     }
 
     .comics-card {
-        height: 300px;
+        height: 250px;
     }
 
     .comics-card img {

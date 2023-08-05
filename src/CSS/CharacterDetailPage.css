@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 50px;
-  background-color: #282c34;
+  /* background-color: #282c34; */
 }
 
 .character-container img {
@@ -38,18 +38,19 @@
 }
 
 .comic-card {
-  border: 2px solid red; 
+  border: 2px solid gold; 
   padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 5px;
+  border-radius: 15px;
   text-align: center;
-  background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   position: relative;
+  background: #232323;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: all 0.5s;
+  margin-bottom: 15px;
 }
 
 .comic-card::before {
@@ -74,7 +75,7 @@
 
 .comic-card p {
   margin: 10px 0;
-  color: red; 
+  color: white; 
   height: 40px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -83,8 +84,20 @@
 
 .comic-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  color: #282c34;
+  background-position: left;
+  transform: scale(1.05); 
+  background: linear-gradient(45deg, #3a3a3a 25%, #4d4d4d 50%, #3a3a3a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1s infinite;
+
 }
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 .fav-button {
   margin-bottom: 20px;
 }

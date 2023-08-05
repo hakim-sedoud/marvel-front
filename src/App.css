@@ -1,0 +1,14 @@
+.background-all {
+    background: linear-gradient(to right, rgb(100, 9, 9), rgb(10, 10, 100));
+}
+
+/* Cacher la barre de défilement pour Chrome, Safari et Opera */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Cacher la barre de défilement pour IE, Edge et Firefox */
+html, body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}

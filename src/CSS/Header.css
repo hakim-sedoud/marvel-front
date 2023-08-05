@@ -1,8 +1,8 @@
 header {
     background-color: #282c34; 
     padding: 20px 0; 
-    border-bottom: 2px solid white;
-}
+    border-bottom: 2px solid #FFD700;
+            }
 header img {
     height: 70px; 
     object-fit: contain; 

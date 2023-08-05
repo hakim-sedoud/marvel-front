@@ -72,7 +72,7 @@ const ComicsPage = () => {
                         <div className="comics-card">
                             <h3>{comic.title}</h3>
                             <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
-                            <p>{comic.description}</p>
+                            {/* <p>{comic.description}</p> */}
                         </div>
                     </Link>
                 ))}
