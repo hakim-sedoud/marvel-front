@@ -14,7 +14,7 @@ const ComicsDetailPage = ({setIsModalLogin}) => {
   useEffect(() => {
     const fetchComic = async () => {
       try {
-        const response = await axios.get(`http://site--marvel--8bd4m7bpgzgn.code.run/comic/${comicId}`);
+        const response = await axios.get(`https://site--marvel--8bd4m7bpgzgn.code.run/comic/${comicId}`);
         setComic(response.data);
       } catch (error) {
         console.error('Erreur lors de la récupération du comic spécifié:', error);
@@ -27,7 +27,7 @@ const ComicsDetailPage = ({setIsModalLogin}) => {
   
   const isFavoritePresent = async (token, comicId) => {
     try {
-        const response = await axios.get('http://site--marvel--8bd4m7bpgzgn.code.run/favorites', { params: { token: token } });
+        const response = await axios.get('https://site--marvel--8bd4m7bpgzgn.code.run/favorites', { params: { token: token } });
         return response.data.some(fav => fav.favoriteId === comicId && fav.favoriteType === "comic");
     } catch (error) {
         console.error("Erreur lors de la vérification des favoris:", error);
@@ -37,7 +37,7 @@ const ComicsDetailPage = ({setIsModalLogin}) => {
 
 const addToFavorites = async (token, comicId) => {
   try {
-      const response = await axios.post('http://site--marvel--8bd4m7bpgzgn.code.run/favorites/add', {
+      const response = await axios.post('https://site--marvel--8bd4m7bpgzgn.code.run/favorites/add', {
           token: token,
           favoriteId: comicId,
           favoriteType: "comic"
@@ -51,7 +51,7 @@ const addToFavorites = async (token, comicId) => {
 
 const removeFromFavorites = async (token, comicId) => {
   try {
-      const response = await axios.delete('http://site--marvel--8bd4m7bpgzgn.code.run/favorites/remove', {
+      const response = await axios.delete('https://site--marvel--8bd4m7bpgzgn.code.run/favorites/remove', {
           data: { 
               token: token,
               favoriteId: comicId,

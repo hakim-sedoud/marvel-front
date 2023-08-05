@@ -10,7 +10,7 @@ const CharacterComicsPage = () => {
   useEffect(() => {
     const fetchComics = async () => {
       try {
-        const response = await axios.get(`http://site--marvel--8bd4m7bpgzgn.code.run/comics/${characterId}`);
+        const response = await axios.get(`https://site--marvel--8bd4m7bpgzgn.code.run/comics/${characterId}`);
 
         setComics(response.data);
         setIsLoading(false);

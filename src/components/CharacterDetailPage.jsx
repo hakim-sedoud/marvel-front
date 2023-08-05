@@ -15,12 +15,12 @@ const CharacterDetailPage = ({setIsModalLogin}) => {
   useEffect(() => {
     const fetchCharacter = async () => {
       try {
-        const response = await axios.get(`http://site--marvel--8bd4m7bpgzgn.code.run/character/${characterId}`);
+        const response = await axios.get(`https://site--marvel--8bd4m7bpgzgn.code.run/character/${characterId}`);
         setCharacter(response.data);
         setLoading(false);
 
         const comicsDetails = await Promise.all(response.data.comics.map(async (comicId) => {
-          const comicResponse = await axios.get(`http://site--marvel--8bd4m7bpgzgn.code.run/comic/${comicId}`);
+          const comicResponse = await axios.get(`https://site--marvel--8bd4m7bpgzgn.code.run/comic/${comicId}`);
           return comicResponse.data;
         }));
         setComics(comicsDetails);
@@ -45,7 +45,7 @@ const CharacterDetailPage = ({setIsModalLogin}) => {
 
   const isFavoritePresent = async (token, characterId) => {
     try {
-      const response = await axios.get('http://site--marvel--8bd4m7bpgzgn.code.run/favorites', { params: { token: token } });
+      const response = await axios.get('https://site--marvel--8bd4m7bpgzgn.code.run/favorites', { params: { token: token } });
       return response.data.some(fav => fav.favoriteId === characterId && fav.favoriteType === "character");
     } catch (error) {
       console.error("Erreur lors de la vérification des favoris:", error);
@@ -55,7 +55,7 @@ const CharacterDetailPage = ({setIsModalLogin}) => {
 
   const addToFavorites = async (token, characterId) => {
     try {
-      const response = await axios.post('http://site--marvel--8bd4m7bpgzgn.code.run/favorites/add', {
+      const response = await axios.post('https://site--marvel--8bd4m7bpgzgn.code.run/favorites/add', {
           token: token,
           favoriteId: characterId,
           favoriteType: "character"
@@ -69,7 +69,7 @@ const CharacterDetailPage = ({setIsModalLogin}) => {
 
   const removeFromFavorites = async (token, characterId) => {
     try {
-      const response = await axios.delete('http://site--marvel--8bd4m7bpgzgn.code.run/favorites/remove', {
+      const response = await axios.delete('https://site--marvel--8bd4m7bpgzgn.code.run/favorites/remove', {
           data: { 
               token: token,
               favoriteId: characterId,

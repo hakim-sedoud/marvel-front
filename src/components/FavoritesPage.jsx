@@ -23,12 +23,12 @@ const FavoritesPage = () => {
             const token = Cookies.get('userToken');
             try {
                 const response = await axios.get(
-                    `http://site--marvel--8bd4m7bpgzgn.code.run/favorites`, 
+                    `https://site--marvel--8bd4m7bpgzgn.code.run/favorites`, 
                     { params: { token: token } }
                 );
                 if (response.data) {
                     const characterPromises = response.data.filter(fav => fav.favoriteType === "character").map(async (favorite) => {
-                        const detailResponse = await axios.get(`http://site--marvel--8bd4m7bpgzgn.code.run/character/${favorite.favoriteId}`);
+                        const detailResponse = await axios.get(`https://site--marvel--8bd4m7bpgzgn.code.run/character/${favorite.favoriteId}`);
                         // console.log(detailResponse.data);
                         return {
                             id: favorite.favoriteId,
@@ -39,7 +39,7 @@ const FavoritesPage = () => {
                     });
 
                     const comicPromises = response.data.filter(fav => fav.favoriteType === "comic").map(async (favorite) => {
-                        const detailResponse = await axios.get(`http://site--marvel--8bd4m7bpgzgn.code.run/comic/${favorite.favoriteId}`);
+                        const detailResponse = await axios.get(`https://site--marvel--8bd4m7bpgzgn.code.run/comic/${favorite.favoriteId}`);
                         // console.log(detailResponse.data);
 
                         return {
