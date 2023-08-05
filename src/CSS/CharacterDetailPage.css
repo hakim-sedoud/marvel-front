@@ -33,10 +33,36 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   max-width: 1000px;
 }
 
+.comic-card {
+  border: 2px solid red; 
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.comic-card::before {
+  content: "MARVEL";
+  font-family: 'Arial', sans-serif; 
+  font-size: 20px;
+  color: rgba(255, 0, 0, 0.2); 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg); 
+  z-index: -1; 
+}
 
 .comic-card img {
   max-width: 100%;
@@ -46,6 +72,19 @@
   margin-bottom: 10px;
 }
 
+.comic-card p {
+  margin: 10px 0;
+  color: red; 
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.comic-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); 
+}
 .fav-button {
   margin-bottom: 20px;
 }
@@ -63,9 +102,16 @@
   .character-container p {
     font-size: 14px;
   }
-
+  .comic-card {
+    width: 150px;
+    display: flex;
+    align-items: center;
+  }
   .comic-card img {
     height: 200px; 
+  }
+  .comic-card p {
+    width: 100px;
   }
 
   .fav-button {
@@ -91,7 +137,7 @@
   }
 
   .comic-card img {
-    height: 150px; 
+    height: 200px; 
   }
 
   .fav-button {

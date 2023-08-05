@@ -10,6 +10,18 @@ const ComicsDetailPage = ({setIsModalLogin}) => {
   const [comic, setComic] = useState(null);
   const [isFavorited, setIsFavorited] = useState(false);
 
+  useEffect(() => {
+    
+    const checkIfFavorite = async () => {
+      const token = Cookies.get('userToken');
+      if (token) {
+        const isFav = await isFavoritePresent(token, comicId);
+        setIsFavorited(isFav); 
+    }
+    };
+
+    checkIfFavorite();
+  }, [comicId]);
 
   useEffect(() => {
     const fetchComic = async () => {

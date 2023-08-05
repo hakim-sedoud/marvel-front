@@ -3,6 +3,8 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import "../CSS/CharacterDetailPage.css"; 
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
+
 
 const CharacterDetailPage = ({setIsModalLogin}) => {
   const { characterId } = useParams();
@@ -34,10 +36,13 @@ const CharacterDetailPage = ({setIsModalLogin}) => {
   }, [characterId]);
 
   useEffect(() => {
+    
     const checkIfFavorite = async () => {
       const token = Cookies.get('userToken');
-      const isFav = await isFavoritePresent(token, characterId);
-      setIsFavorited(isFav);
+      if (token) {
+        const isFav = await isFavoritePresent(token, characterId);
+        setIsFavorited(isFav); 
+    }
     };
 
     checkIfFavorite();
@@ -87,7 +92,7 @@ const CharacterDetailPage = ({setIsModalLogin}) => {
     const token = Cookies.get('userToken');
     if (!token) {
       setIsModalLogin(true); 
-      return;
+      return;  
   }
     const isPresent = await isFavoritePresent(token, characterId);
 
@@ -118,16 +123,20 @@ const CharacterDetailPage = ({setIsModalLogin}) => {
         {isFavorited ? "Retirer des favoris" : "Ajouter aux favoris"}
       </button>
       <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name} />
-      <h2>{character.name}</h2>
+      <h2 >{character.name}</h2>
       <p>{character.description}</p>
       <h3>Comics où vous pouvez retrouver ce personnage :</h3>
       <div className="comics-list">
         {comics.map((comic, index) => (
+      <Link to={`/comic/${comic._id}`} key={comic._id} >
+
           <div className="comic-card" key={index}>
             <p>{comic.title ? comic.title : "Comic sans nom"}</p>
             <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
           </div>
+          </Link>
         ))}
+       
       </div>
     </div>
   );
