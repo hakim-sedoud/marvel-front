@@ -11,10 +11,10 @@ const CharactersPage = () => {
 
     const fetchCharacters = async (search = "") => {
         const response = await axios.get(
-            `http://localhost:3000/characters`, {
+            `http://site--marvel--8bd4m7bpgzgn.code.run/characters`, {
                 params: {
                     name: search,
-                    limit: search ? 50 : 100,  // Si recherche active, limiter à 10 résultats
+                    limit: search ? 50 : 100,  
                     skip: (currentPage - 1) * 100,
                 }
             }

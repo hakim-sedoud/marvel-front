@@ -1,24 +1,22 @@
-/* Container principal pour les personnages */
 .characters-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    padding-top: 30px; /* Ajoute un espace en haut pour compenser la hauteur du header */
-    background-color: #282c34; /* Fond sombre pour un effet "comics" */
+    padding-top: 30px; 
+    background-color: #282c34; 
 }
 
-/* Lien enveloppant chaque carte */
 .character-card-link {
-    text-decoration: none; /* Retire le soulignement du lien */
-    color: inherit; /* Hérite la couleur du texte du parent */
+    text-decoration: none; 
+    color: inherit; 
     width: 200px;
-    transition: transform 0.3s; /* Effet de transition pour le survol */
+    transition: transform 0.3s; 
 }
 
-/* Style de chaque carte de personnage */
+
 .character-card {
-    border: 2px solid red; /* Bordure rouge typique de Marvel */
+    border: 2px solid red; 
     padding: 15px;
     border-radius: 5px;
     text-align: center;
@@ -33,17 +31,16 @@
 
 .character-card::before {
     content: "MARVEL";
-    font-family: 'Arial', sans-serif; /* Vous pouvez utiliser une autre police qui évoque l'univers Marvel si vous en avez une */
+    font-family: 'Arial', sans-serif; 
     font-size: 40px;
-    color: rgba(255, 0, 0, 0.2); /* Légèrement transparent pour ne pas dominer le contenu */
+    color: rgba(255, 0, 0, 0.2); 
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(-30deg); /* Centrage et légère rotation */
-    z-index: -1; /* Pour qu'il soit en arrière-plan */
+    transform: translate(-50%, -50%) rotate(-30deg); 
+    z-index: -1; 
 }
 
-/* Style de l'image du personnage */
 .character-card img {
     max-width: 100%;
     height: 250px;
@@ -52,23 +49,23 @@
     margin-bottom: 10px;
 }
 
-/* Effet au survol d'une carte */
+
 .character-card-link:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); 
 }
 
-/* Style pour le nom du personnage */
+
 .character-card h2 {
     margin: 10px 0;
-    color: red; /* Titre rouge */
+    color: red; 
     height: 40px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-/* Description du personnage */
+
 .character-card p {
     font-size: 14px;
     color: #333;
@@ -80,17 +77,16 @@
     -webkit-box-orient: vertical;
 }
 
-/* buttons.css */
 
 .page-button-container {
     text-align: center;
-    background-color: #282c34; /* Fond sombre pour un effet "comics" */
+    background-color: #282c34; 
     padding: 20px;
 }
 
 .page-button {
     padding: 10px 20px;
-    border: 2px solid red; /* Bordure rouge typique de Marvel */
+    border: 2px solid red; 
     border-radius: 5px;
     background-color: #fff;
     text-align: center;
@@ -101,14 +97,14 @@
     color: inherit;
     transition: transform 0.3s, background-color 0.3s;
     cursor: pointer;
-    display: inline-block; /* Nécessaire pour que le bouton s'affiche en ligne */
+    display: inline-block; 
     margin: 0 10px;
 }
 
 .page-button:hover {
     background-color: #f0f0f0;
     transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); 
     color: #282c34 ;
 }
 
@@ -121,11 +117,11 @@
 
 .search-bar {
     padding: 10px 20px;
-    width: 80%; /* 80% de la largeur de son conteneur, mais vous pouvez ajuster selon vos besoins */
+    width: 80%; 
     margin: 20px auto;
     display: block;
     font-size: 16px;
-    border: 2px solid red; /* Bordure rouge typique de Marvel */
+    border: 2px solid red; 
     border-radius: 5px;
     background-color: #fff;
     color: #333;
@@ -135,18 +131,15 @@
 
 .search-bar:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05); /* légère augmentation de taille lors de la mise au point */
+    transform: scale(1.05); 
 }
 
-/* Media Query pour les écrans plus petits */
 @media (max-width: 768px) {
-    /* Adapter la barre de recherche pour une meilleure visibilité */
     .search-bar {
         width: 95%;
         margin: 15px auto;
     }
 
-    /* Diminuer la taille de la carte et adapter le contenu pour un affichage optimal */
     .character-card-link {
         width: 150px;
     }
@@ -164,14 +157,12 @@
         height: 35px;
     }
 
-    /* Adapter les boutons pour une meilleure visibilité */
     .page-button {
         padding: 8px 15px;
         font-size: 14px;
         margin: 0 5px;
     }
 
-    /* Adapter le container des personnages pour un affichage optimal */
     .characters-container {
         gap: 10px;
         padding-top: 15px;

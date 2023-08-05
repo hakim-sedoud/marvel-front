@@ -1,4 +1,3 @@
-/* ComicsDetailPage.css */
 .comicsDetail-container {
     display: flex;
     flex-direction: column;
@@ -31,7 +30,6 @@
     margin-top: 20px;
   }
 
-  /* Media Query pour les tablettes et écrans plus petits */
 @media (max-width: 768px) {
   .comicsDetail-container img {
     max-width: 90%;
@@ -54,7 +52,6 @@
   }
 }
 
-/* Media Query pour les écrans mobiles */
 @media (max-width: 480px) {
   .comicsDetail-container img {
     max-width: 100%;

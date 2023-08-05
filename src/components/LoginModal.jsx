@@ -12,13 +12,13 @@ function LoginModal({ isOpen, onClose, onSwitch, handleLoginSubmit, setIsLoggedI
     const [error, setError] = useState('');
 
     const handleClose = () => {
-        setError(''); // Réinitialiser les erreurs avant la fermeture
+        setError('');
         onClose();
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setError(''); // Réinitialiser les erreurs avant la soumission
+        setError(''); 
     
         try {
             const response = await handleLoginSubmit(event, email, password);
@@ -26,9 +26,9 @@ function LoginModal({ isOpen, onClose, onSwitch, handleLoginSubmit, setIsLoggedI
             if (response && response.data && response.data.token) {
                 Cookies.set('userToken', response.data.token);
                 setIsLoggedIn(true);
-                handleClose(); // Fermer la modal en cas de connexion réussie
+                handleClose(); 
             } else {
-                setError("Email ou mot de passe incorrect."); // Définir le message d'erreur spécifique
+                setError("Email ou mot de passe incorrect."); 
             }
         } catch (error) {
             console.log(error);
@@ -58,7 +58,7 @@ function LoginModal({ isOpen, onClose, onSwitch, handleLoginSubmit, setIsLoggedI
                     />
                     <button type="submit">Se connecter</button>
                 </form>
-                {error && <p className="error-message">{error}</p>} {/* Afficher le message d'erreur s'il y en a un */}
+                {error && <p className="error-message">{error}</p>} 
                 <p>Vous n'avez pas de compte ? <span onClick={onSwitch}>Inscrivez-vous</span></p>
                 <button onClick={handleClose}>Fermer</button>
             </div>

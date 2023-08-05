@@ -1,62 +1,62 @@
 header {
-    background-color: #282c34; /* Ajustez cette valeur si votre en-tête a une couleur différente */
-    padding: 20px 0; /* Ajustez la valeur de padding selon vos besoins */
+    background-color: #282c34; 
+    padding: 20px 0; 
     border-bottom: 2px solid white;
 }
 header img {
-    height: 70px; /* Ajuste la hauteur de l'image pour qu'elle occupe toute la hauteur du header */
-    object-fit: contain; /* Utilise "contain" pour que l'image conserve ses proportions tout en rentrant dans la zone spécifiée */
+    height: 70px; 
+    object-fit: contain; 
 }
 header > div {
-    max-width: 1200px; /* Ajustez selon la largeur souhaitée */
-    margin: 0 auto; /* Centrage horizontal */
+    max-width: 1200px; 
+    margin: 0 auto; 
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-left: 20px; /* Marge à gauche */
-    padding-right: 20px; /* Marge à droite */
+    padding-left: 20px; 
+    padding-right: 20px; 
 }
 .nav-container {
     display: flex;
-    justify-content: space-between; /* Sépare nav et les boutons */
-    align-items: center; /* Alignement vertical au centre */
-    width: 100%; /* Prend toute la largeur disponible */
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
 }
 nav {
     display: flex;
-    gap: 20px; /* Espace entre les liens */
+    gap: 20px; 
 }
 
 nav a {
     text-decoration: none;
-    color: white; /* Couleur du texte des liens */
+    color: white; 
     transition: color 0.3s;
 }
 
 nav a:hover {
-    color: red; /* Couleur du texte des liens lors du survol */
+    color: red; 
 }
 .buttons-container {
     display: flex;
-    gap: 10px; /* Espacement entre les boutons */
+    gap: 10px; 
 }
 button {
     padding: 5px 15px;
-    background-color: red; /* Ajustez la couleur de fond selon vos préférences */
+    background-color: red; 
     border: none;
     border-radius: 5px;
-    color: white; /* Couleur du texte du bouton */
+    color: white; 
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: darkred; /* Une nuance plus foncée de rouge pour le survol */
+    background-color: darkred; 
 }
 
-/* Votre CSS existant reste inchangé. Ajoutons simplement des médias queries pour les écrans plus petits. */
 
-/* Pour les tablettes et les appareils de taille moyenne */
+
+
 @media (max-width: 768px) {
     header > div {
         flex-direction: column;
@@ -64,39 +64,38 @@ button:hover {
     }
     
     .nav-container {
-        flex-direction: row; /* Garde nav et les boutons en ligne horizontale */
-        padding-top: 10px; /* Espacement du haut */
+        flex-direction: row; 
+        padding-top: 10px; 
     }
 
     nav {
-        flex-grow: 1; /* Permet à nav de prendre tout l'espace disponible */
+        flex-grow: 1; 
     }
 }
 
 .header-button {
-    padding: 5px 10px; /* Réduit le padding */
-    font-size: 19px; /* Réduit la taille de la police */
-    border-radius: 4px; /* Bordure plus petite */
+    padding: 5px 10px; 
+    font-size: 19px; 
+    border-radius: 4px; 
 }
 
 
 
-/* Pour les téléphones mobiles et les petits appareils */
 @media (max-width: 480px) {
     header {
-        padding: 10px 0; /* Réduisez le padding */
+        padding: 10px 0; 
     }
 
     header img {
-        height: 50px; /* Réduisez la taille du logo */
+        height: 50px; 
     }
 
     nav a {
-        font-size: 14px; /* Réduisez la taille de la police pour économiser de l'espace */
+        font-size: 14px; 
     }
 
     .header-button {
-        padding: 5px 10px; /* Encore plus petit pour les très petits écrans */
+        padding: 5px 10px; 
         font-size: 15px;
         border-radius: 3px;
     }

@@ -11,10 +11,10 @@ const ComicsPage = () => {
 
     const fetchComics = async (search = "") => {
         const response = await axios.get(
-            `http://localhost:3000/comics`, {
+            `http://site--marvel--8bd4m7bpgzgn.code.run/comics`, {
                 params: {
                     title: search,
-                    limit: search ? 50 : 100,  // Si recherche active, limiter à 10 résultats
+                    limit: search ? 50 : 100,  
                     skip: (currentPage - 1) * 100,
                 }
             }

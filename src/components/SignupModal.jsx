@@ -9,18 +9,18 @@ function SignupModal({ isOpen, onClose, onSwitch, handleSignupSubmit }) {
     const [error, setError] = useState('');
 
     const handleClose = () => {
-        setError(''); // Réinitialiser les erreurs avant la fermeture
+        setError(''); 
         onClose();
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setError(''); // Réinitialiser les erreurs avant la soumission
+        setError(''); 
 
         try {
             await handleSignupSubmit(event, email, password);
             if (email && password) {
-                handleClose(); // Fermer la modal en cas d'inscription réussie
+                handleClose(); 
             } else if (!email){
                 setError("merci de renseigner un email valide");
             }        
@@ -29,7 +29,7 @@ function SignupModal({ isOpen, onClose, onSwitch, handleSignupSubmit }) {
             }
         } catch (error) {
             if (error.response) {
-                setError(error.response.data.message); // Définir l'erreur renvoyée par le serveur
+                setError(error.response.data.message); 
             } else {
                 setError("Une erreur s'est produite lors de l'inscription.");
             }
@@ -57,7 +57,7 @@ function SignupModal({ isOpen, onClose, onSwitch, handleSignupSubmit }) {
                     />
                     <button type="submit">S'inscrire</button>
                 </form>
-                {error && <p className="error-message">{error}</p>} {/* Afficher le message d'erreur s'il y en a un */}
+                {error && <p className="error-message">{error}</p>}
                 <p>Vous avez déjà un compte ? <span onClick={onSwitch}>Connectez-vous</span></p>
                 <button onClick={handleClose}>Fermer</button>
             </div>

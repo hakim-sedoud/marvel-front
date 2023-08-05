@@ -37,9 +37,6 @@
   max-width: 1000px;
 }
 
-.comic-card {
-  /* ... autres styles ... */
-}
 
 .comic-card img {
   max-width: 100%;
@@ -68,7 +65,7 @@
   }
 
   .comic-card img {
-    height: 200px; /* Réduction de la hauteur de l'image pour les tablettes */
+    height: 200px; 
   }
 
   .fav-button {
@@ -94,7 +91,7 @@
   }
 
   .comic-card img {
-    height: 150px; /* Réduction de la hauteur de l'image pour les mobiles */
+    height: 150px; 
   }
 
   .fav-button {

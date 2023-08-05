@@ -37,7 +37,7 @@ function App() {
     event.preventDefault();
 
     try {
-        const response = await axios.post('http://localhost:3000/login', {  
+        const response = await axios.post('http://site--marvel--8bd4m7bpgzgn.code.run/login', {  
             email: email,
             password: password
         });
@@ -46,11 +46,11 @@ function App() {
             Cookies.set('userToken', response.data.token);
             setIsLoggedIn(true);
         }
-        window.location.reload();
+        window.location.reload(); // rafraichis les pages au declenchement de la fonction !!!
         return response;
     } catch (error) {
         console.error("Erreur lors de la tentative de connexion:", error);
-        throw error;  // Propager l'erreur pour que nous puissions la gérer ailleurs
+        
     }
     
 }
@@ -59,7 +59,7 @@ function App() {
       event.preventDefault();
   
       try {
-          const response = await axios.post('http://localhost:3000/signup', {
+          const response = await axios.post('http://site--marvel--8bd4m7bpgzgn.code.run/signup', {
               email: email,
               password: password
           });
@@ -88,10 +88,10 @@ function App() {
     handleLogout={handleLogout} 
 />      <Routes>
         <Route path="/"element={<CharactersPage />}/>
-        <Route path="/character/:characterId" element={<CharacterDetailPage />}/>
+        <Route path="/character/:characterId" element={<CharacterDetailPage     setIsModalLogin={setIsModalLogin} />}/>
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/comics" element={<ComicsPage/>} />
-        <Route path="/comic/:comicId" element={<ComicsDetailPage />}/> 
+        <Route path="/comic/:comicId" element={<ComicsDetailPage     setIsModalLogin={setIsModalLogin} />}/> 
         <Route exact path="/comics/:characterId" component={<CharacterComicsPage/>} /> 
       </Routes>
         {isModalLogin && <LoginModal 

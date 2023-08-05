@@ -7,13 +7,13 @@ function Header({ setIsModalSing, isLoggedIn, handleLogout, setIsModalLogin }) {
         <header>
             <div>
                 <img src="https://res.cloudinary.com/duccldgqq/image/upload/v1691016667/samples/vg04ioc8dfmcahbakhho.png" alt="logo" />
-                <div className="nav-container"> {/* Ajouté pour regrouper nav et les boutons */}
+                <div className="nav-container"> 
                     <nav>
                         <Link to="/">Personnages</Link>
                         <Link to="/comics">Comics</Link>
                         {isLoggedIn && <Link to="/favorites">Favoris</Link>}
                     </nav>
-                    <div className="buttons-container"> {/* Conteneur pour les boutons */}
+                    <div className="buttons-container"> 
                         {isLoggedIn ? (
                             <button onClick={handleLogout} className='header-button'>Déconnexion</button>
                         ) : (

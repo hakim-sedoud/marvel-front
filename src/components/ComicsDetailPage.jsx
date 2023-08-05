@@ -1,4 +1,3 @@
-// ComicsDetailPage.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -6,7 +5,7 @@ import '../CSS/ComicsDetailPage.css';
 import Cookies from 'js-cookie';
 
 
-const ComicsDetailPage = () => {
+const ComicsDetailPage = ({setIsModalLogin}) => {
   const { comicId } = useParams();
   const [comic, setComic] = useState(null);
   const [isFavorited, setIsFavorited] = useState(false);
@@ -15,7 +14,7 @@ const ComicsDetailPage = () => {
   useEffect(() => {
     const fetchComic = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/comic/${comicId}`);
+        const response = await axios.get(`http://site--marvel--8bd4m7bpgzgn.code.run/comic/${comicId}`);
         setComic(response.data);
       } catch (error) {
         console.error('Erreur lors de la récupération du comic spécifié:', error);
@@ -28,7 +27,7 @@ const ComicsDetailPage = () => {
   
   const isFavoritePresent = async (token, comicId) => {
     try {
-        const response = await axios.get('http://localhost:3000/favorites', { params: { token: token } });
+        const response = await axios.get('http://site--marvel--8bd4m7bpgzgn.code.run/favorites', { params: { token: token } });
         return response.data.some(fav => fav.favoriteId === comicId && fav.favoriteType === "comic");
     } catch (error) {
         console.error("Erreur lors de la vérification des favoris:", error);
@@ -38,7 +37,7 @@ const ComicsDetailPage = () => {
 
 const addToFavorites = async (token, comicId) => {
   try {
-      const response = await axios.post('http://localhost:3000/favorites/add', {
+      const response = await axios.post('http://site--marvel--8bd4m7bpgzgn.code.run/favorites/add', {
           token: token,
           favoriteId: comicId,
           favoriteType: "comic"
@@ -52,7 +51,7 @@ const addToFavorites = async (token, comicId) => {
 
 const removeFromFavorites = async (token, comicId) => {
   try {
-      const response = await axios.delete('http://localhost:3000/favorites/remove', {
+      const response = await axios.delete('http://site--marvel--8bd4m7bpgzgn.code.run/favorites/remove', {
           data: { 
               token: token,
               favoriteId: comicId,
@@ -68,11 +67,13 @@ const removeFromFavorites = async (token, comicId) => {
 
 const handleToggleFavorite = async () => {
   const token = Cookies.get('userToken');
+  if (!token) {
+    setIsModalLogin(true); 
+    return;
+}
 
-  // Vérifier si l'élément est présent dans la base de données
   const isPresent = await isFavoritePresent(token, comicId);
 
-  // Si l'élément est présent, le supprimer
   if (isPresent) {
       const success = await removeFromFavorites(token, comicId);
       if (success) {
@@ -80,7 +81,6 @@ const handleToggleFavorite = async () => {
           setIsFavorited(false);
       }
 
-  // Si l'élément est absent, l'ajouter
   } else {
       const success = await addToFavorites(token, comicId);
       if (success) {
