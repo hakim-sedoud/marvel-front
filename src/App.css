@@ -1,5 +1,7 @@
 .background-all {
     background: linear-gradient(to right, rgb(100, 9, 9), rgb(10, 10, 100));
+    min-height: 100vh;
+    max-height: 100%;
 }
 
 /* Cacher la barre de défilement pour Chrome, Safari et Opera */
