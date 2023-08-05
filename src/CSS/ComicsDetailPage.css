@@ -30,3 +30,50 @@
   .fav-button {
     margin-top: 20px;
   }
+
+  /* Media Query pour les tablettes et écrans plus petits */
+@media (max-width: 768px) {
+  .comicsDetail-container img {
+    max-width: 90%;
+    max-height: 400px;
+    height: auto;
+  }
+
+  .comicsDetail-container h1 {
+    font-size: 20px;
+  }
+
+  .comicsDetail-container p {
+    font-size: 14px;
+  }
+
+  .fav-button {
+    padding: 8px 15px;
+    font-size: 14px;
+    margin: 10px auto;
+  }
+}
+
+/* Media Query pour les écrans mobiles */
+@media (max-width: 480px) {
+  .comicsDetail-container img {
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+  }
+
+  .comicsDetail-container h1 {
+    font-size: 18px;
+    margin: 10px auto;
+  }
+
+  .comicsDetail-container p {
+    font-size: 12px;
+  }
+
+  .fav-button {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin: 8px auto;
+  }
+}

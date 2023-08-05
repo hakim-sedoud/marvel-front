@@ -93,5 +93,50 @@ h1 {
     height: 40px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
+
+/* CSS existant ... */
+
+/* Media query pour les tablettes */
+@media (max-width: 768px) {
+    .favorite-card-container {
+      align-items: center;
+    }
+    .favorite-card-link {
+      width: 150px; /* Réduire la largeur de la carte */
+    }
+    .favorite-card {
+      height: 300px; /* Réduire la hauteur de la carte */
+    }
+    .favorite-card img {
+      height: 180px; /* Réduire la hauteur de l'image */
+    }
+    h1 {
+      font-size: 30px; /* Réduire la taille du titre */
+    }
+    .favorite-card h2 {
+        font-size: 15px;
+    }
+
+  }
+  
+  /* Media query pour les mobiles */
+  @media (max-width: 480px) {
+    .favorite-card-link {
+      width: 100px; /* Réduire encore plus la largeur de la carte */
+    }
+    .favorite-card {
+      height: 200px; /* Réduire encore plus la hauteur de la carte */
+    }
+    .favorite-card img {
+      height: 120px; /* Réduire encore plus la hauteur de l'image */
+    }
+    h1 {
+      font-size: 20px; /* Réduire encore plus la taille du titre */
+    }
+    .favorite-card h2 {
+        font-size: 12px;
+    }
+  }
+  

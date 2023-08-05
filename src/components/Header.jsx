@@ -7,21 +7,24 @@ function Header({ setIsModalSing, isLoggedIn, handleLogout, setIsModalLogin }) {
         <header>
             <div>
                 <img src="https://res.cloudinary.com/duccldgqq/image/upload/v1691016667/samples/vg04ioc8dfmcahbakhho.png" alt="logo" />
-            <nav>
-                <Link to="/">Personnages</Link>
-                <Link to="/comics">Comics</Link>
-                {isLoggedIn && <Link to="/favorites">Favoris</Link>}
-            </nav>
-            {isLoggedIn ? (
-                <button onClick={handleLogout}>Déconnexion</button>
-            ) : (
-                <>
-                    <button onClick={() => setIsModalLogin(true)}>Se connecter</button>
-                    <button onClick={() => setIsModalSing(true)}>S'inscrire</button>
-                </>
-            )}
+                <div className="nav-container"> {/* Ajouté pour regrouper nav et les boutons */}
+                    <nav>
+                        <Link to="/">Personnages</Link>
+                        <Link to="/comics">Comics</Link>
+                        {isLoggedIn && <Link to="/favorites">Favoris</Link>}
+                    </nav>
+                    <div className="buttons-container"> {/* Conteneur pour les boutons */}
+                        {isLoggedIn ? (
+                            <button onClick={handleLogout} className='header-button'>Déconnexion</button>
+                        ) : (
+                            <>
+                                <button onClick={() => setIsModalLogin(true)} className='header-button'>Se connecter</button>
+                                <button onClick={() => setIsModalSing(true)} className='header-button'>S'inscrire</button>
+                            </>
+                        )}
+                    </div>
+                </div>
             </div>
-
         </header>
     );
 }

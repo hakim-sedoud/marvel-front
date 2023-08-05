@@ -2,7 +2,6 @@ header {
     background-color: #282c34; /* Ajustez cette valeur si votre en-tête a une couleur différente */
     padding: 20px 0; /* Ajustez la valeur de padding selon vos besoins */
     border-bottom: 2px solid white;
-    height: 60px;
 }
 header img {
     height: 70px; /* Ajuste la hauteur de l'image pour qu'elle occupe toute la hauteur du header */
@@ -17,7 +16,12 @@ header > div {
     padding-left: 20px; /* Marge à gauche */
     padding-right: 20px; /* Marge à droite */
 }
-
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Sépare nav et les boutons */
+    align-items: center; /* Alignement vertical au centre */
+    width: 100%; /* Prend toute la largeur disponible */
+}
 nav {
     display: flex;
     gap: 20px; /* Espace entre les liens */
@@ -32,7 +36,10 @@ nav a {
 nav a:hover {
     color: red; /* Couleur du texte des liens lors du survol */
 }
-
+.buttons-container {
+    display: flex;
+    gap: 10px; /* Espacement entre les boutons */
+}
 button {
     padding: 5px 15px;
     background-color: red; /* Ajustez la couleur de fond selon vos préférences */
@@ -45,4 +52,52 @@ button {
 
 button:hover {
     background-color: darkred; /* Une nuance plus foncée de rouge pour le survol */
+}
+
+/* Votre CSS existant reste inchangé. Ajoutons simplement des médias queries pour les écrans plus petits. */
+
+/* Pour les tablettes et les appareils de taille moyenne */
+@media (max-width: 768px) {
+    header > div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .nav-container {
+        flex-direction: row; /* Garde nav et les boutons en ligne horizontale */
+        padding-top: 10px; /* Espacement du haut */
+    }
+
+    nav {
+        flex-grow: 1; /* Permet à nav de prendre tout l'espace disponible */
+    }
+}
+
+.header-button {
+    padding: 5px 10px; /* Réduit le padding */
+    font-size: 19px; /* Réduit la taille de la police */
+    border-radius: 4px; /* Bordure plus petite */
+}
+
+
+
+/* Pour les téléphones mobiles et les petits appareils */
+@media (max-width: 480px) {
+    header {
+        padding: 10px 0; /* Réduisez le padding */
+    }
+
+    header img {
+        height: 50px; /* Réduisez la taille du logo */
+    }
+
+    nav a {
+        font-size: 14px; /* Réduisez la taille de la police pour économiser de l'espace */
+    }
+
+    .header-button {
+        padding: 5px 10px; /* Encore plus petit pour les très petits écrans */
+        font-size: 15px;
+        border-radius: 3px;
+    }
 }

@@ -103,3 +103,43 @@ div .comics-container {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: scale(1.05); /* légère augmentation de taille lors de la mise au point */
 }
+
+/* Media Query pour les écrans plus petits */
+@media (max-width: 768px) {
+    /* Adapter la barre de recherche pour une meilleure visibilité */
+    .search-bar {
+        width: 95%;
+        margin: 15px auto;
+    }
+
+    /* Diminuer la taille de la carte et adapter le contenu pour un affichage optimal */
+    .comics-card-link {
+        width: 150px;
+    }
+
+    .comics-card {
+        height: 300px;
+    }
+
+    .comics-card img {
+        height: 180px;
+    }
+
+    .comics-card h3 {
+        font-size: 16px;
+        height: 35px;
+    }
+
+    /* Adapter les boutons pour une meilleure visibilité */
+    .page-button {
+        padding: 8px 15px;
+        font-size: 14px;
+        margin: 0 5px;
+    }
+
+    /* Adapter le container des comics pour un affichage optimal */
+    .comics-container {
+        gap: 10px;
+        padding-top: 15px;
+    }
+}

@@ -63,3 +63,39 @@
   .error-message {
     color: #ff0f17;
   }
+/* Styles pour les écrans jusqu'à 768 pixels */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 350px; /* Réduction de la largeur à 350px */
+    padding: 15px;
+  }
+
+  input, button {
+    padding: 8px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+
+/* Styles pour les écrans jusqu'à 480 pixels */
+@media (max-width: 480px) {
+  .modal-content {
+    width: 300px; /* Réduction de la largeur à 300px */
+  }
+
+  input, button {
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
