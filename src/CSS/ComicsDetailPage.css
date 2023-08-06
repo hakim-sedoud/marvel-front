@@ -7,6 +7,11 @@
     color: white;
     text-align: center;
   }
+  .comicsDetail-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   
   .comicsDetail-container h1 {
     font-size: 24px;
@@ -28,6 +33,7 @@
   }
   .fav-button {
     margin-top: 20px;
+    color: black;
   }
 
 @media (max-width: 768px) {

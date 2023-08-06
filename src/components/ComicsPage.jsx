@@ -70,8 +70,8 @@ const ComicsPage = () => {
                 {comics.map((comic) => (
                     <Link to={`/comic/${comic._id}`} key={comic._id} className="comics-card-link">
                         <div className="comics-card">
-                            <h3>{comic.title}</h3>
                             <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
+                            <h3>{comic.title}</h3>
                             {/* <p>{comic.description}</p> */}
                         </div>
                     </Link>

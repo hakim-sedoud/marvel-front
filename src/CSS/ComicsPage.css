@@ -1,28 +1,23 @@
-
-div .comics-container {
+.comics-container {
     display: flex;
-    flex-direction: row; 
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    padding-top: 30px; 
+    padding-top: 30px;
 }
-
 
 .comics-card-link {
-    text-decoration: none; 
-    color: inherit; 
+    text-decoration: none;
+    color: inherit;
     width: 200px;
-    transition: transform 0.3s; 
+    transition: transform 0.3s;
 }
 
-
 .comics-card {
-    border: 2px solid gold; 
+    border: 2px solid gold;
     padding: 15px;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -30,18 +25,19 @@ div .comics-container {
     background: #232323;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     transition: all 0.5s;
+    overflow: hidden;
 }
 
 .comics-card::before {
-    font-size: 40px;
-    color: rgba(255, 0, 0, 0.2); 
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-30deg); 
-    z-index: -1; 
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(45deg, rgba(0, 255, 170, 0.3), transparent);
+    transform: skewX(-45deg);
+    transform-origin: bottom left;
+    transition: all 1s;
 }
-
 
 .comics-card img {
     max-width: 100%;
@@ -49,53 +45,91 @@ div .comics-container {
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 10px;
+    filter: grayscale(50%);
+    transition: all 1s;
 }
 
+.comics-card:hover img {
+    filter: grayscale(0%) brightness(110%) contrast(150%);
+}
 
 .comics-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
     color: #282c34;
     background-position: left;
-    transform: scale(1.05); 
     background: linear-gradient(45deg, #3a3a3a 25%, #4d4d4d 50%, #3a3a3a 75%);
     background-size: 200% 100%;
-    animation: shimmer 1s infinite;
+    animation: shimmer 1s;
 }
-@keyframes shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-  }
-
 
 .comics-card h3 {
+    border-radius: 10px;
     margin: 10px 0;
-    color: white; 
+    color: white;
     height: 40px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    transition: all 1s;
+    border-top: 3px solid #00FFAA;
+    box-shadow: 0 -10px 20px rgba(0, 255, 170, 0.4);
 }
 
-.comics-card p {
-    font-size: 14px;
-    color: #333;
-    height: 50px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+.comics-card:hover h3 {
+    background: rgba(0, 255, 170, 0.6);
+    transform: translateY(-10px);
+    box-shadow: 0 -15px 25px #00FFAA;
 }
 
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.page-button-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.page-button {
+    padding: 10px 20px;
+    border: 2px solid red;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s, background-color 0.3s;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.page-button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    color: #282c34;
+}
+
+.page-button:disabled {
+    background-color: #dcdcdc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
 
 .search-bar {
     padding: 10px 20px;
-    width: 80%; 
+    width: 80%;
     margin: 20px auto;
     display: block;
     font-size: 16px;
-    border: 2px solid red; 
+    border: 2px solid red;
     border-radius: 5px;
     background-color: #fff;
     color: #333;
@@ -105,7 +139,7 @@ div .comics-container {
 
 .search-bar:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 @media (max-width: 768px) {

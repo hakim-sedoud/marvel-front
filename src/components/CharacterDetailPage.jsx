@@ -131,8 +131,8 @@ const CharacterDetailPage = ({setIsModalLogin}) => {
       <Link to={`/comic/${comic._id}`} key={comic._id} >
 
           <div className="comic-card" key={index}>
-            <p>{comic.title ? comic.title : "Comic sans nom"}</p>
             <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
+            <h2>{comic.title ? comic.title : "Comic sans nom"}</h2>
           </div>
           </Link>
         ))}
