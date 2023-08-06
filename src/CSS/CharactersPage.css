@@ -165,7 +165,7 @@
     }
 
     .character-card {
-        height: 230px;
+        height: 240px;
     }
 
     .character-card img {
@@ -186,5 +186,49 @@
     .characters-container {
         gap: 10px;
         padding-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+
+    .character-card {
+        /* height: auto;  */
+        padding: 10px;
+        width: 130px;
+    }
+
+    .character-card img {
+        height: 200px;
+        margin-bottom: 5px;
+        width: 200px;
+    }
+
+    .character-card h2 {
+        font-size: 14px;
+        height: 30px;
+    }
+
+    .page-button {
+        padding: 7px 12px;
+        font-size: 12px;
+        margin: 0 3px;
+    }
+
+    .characters-container {
+        gap: 20px;
+        padding-top: 10px;
+    }
+
+    .page-button-container {
+        padding: 15px;
+    }
+
+    .character-card p {
+        font-size: 12px;
     }
 }
