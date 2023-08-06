@@ -165,11 +165,11 @@
     }
 
     .character-card {
-        height: 200px;
+        height: 230px;
     }
 
     .character-card img {
-        height: 180px;
+        height: 150;
     }
 
     .character-card h2 {
