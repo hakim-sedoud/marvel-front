@@ -1,12 +1,8 @@
-import React from 'react';
-import "../CSS/Modal.css"
-import { useState } from 'react'
+import React, { useState } from 'react';
 import Cookies from 'js-cookie';
-
-
+import "../CSS/Modal.css"
 
 function LoginModal({ isOpen, onClose, onSwitch, handleLoginSubmit, setIsLoggedIn }) {
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -19,29 +15,28 @@ function LoginModal({ isOpen, onClose, onSwitch, handleLoginSubmit, setIsLoggedI
     const handleSubmit = async (event) => {
         event.preventDefault();
         setError(''); 
-    
+        
         try {
             const response = await handleLoginSubmit(event, email, password);
-    
-            if (response && response.data && response.data.token) {
+            
+            if (response?.data?.token) {
                 Cookies.set('userToken', response.data.token);
                 setIsLoggedIn(true);
-                handleClose(); 
+                handleClose();
             } else {
-                setError("Email ou mot de passe incorrect."); 
+                setError("Email ou mot de passe incorrect.");
             }
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            console.log(err);
             setError("Une erreur s'est produite lors de la connexion.");
         }
     };
-    
 
     if (!isOpen) return null;
 
     return (
         <div className="modal-overlay" onClick={handleClose}>
-            <div className="modal-content" onClick={(event) => event.stopPropagation()}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <h2>Connexion</h2>
                 <form onSubmit={handleSubmit}>
                     <input
@@ -58,7 +53,7 @@ function LoginModal({ isOpen, onClose, onSwitch, handleLoginSubmit, setIsLoggedI
                     />
                     <button type="submit">Se connecter</button>
                 </form>
-                {error && <p className="error-message">{error}</p>} 
+                {error && <p className="error-message">{error}</p>}
                 <p>Vous n'avez pas de compte ? <span onClick={onSwitch}>Inscrivez-vous</span></p>
                 <button onClick={handleClose}>Fermer</button>
             </div>

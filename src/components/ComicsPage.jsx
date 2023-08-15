@@ -10,17 +10,21 @@ const ComicsPage = () => {
     const [isLastPage, setIsLastPage] = useState(false);
 
     const fetchComics = async (search = "") => {
-        const response = await axios.get(
-            `https://site--marvel--8bd4m7bpgzgn.code.run/comics`, {
-                params: {
-                    title: search,
-                    limit: search ? 50 : 100,  
-                    skip: (currentPage - 1) * 100,
+        try {
+            const response = await axios.get(
+                `https://site--marvel--8bd4m7bpgzgn.code.run/comics`, {
+                    params: {
+                        title: search,
+                        limit: search ? 50 : 100,  
+                        skip: (currentPage - 1) * 100,
+                    }
                 }
-            }
-        );
-        setComics(response.data.results);
-        setIsLastPage(response.data.results.length < 100);
+            );
+            setComics(response.data.results);
+            setIsLastPage(response.data.results.length < 100);
+        } catch (error) {
+            console.error("Erreur lors de la récupération des comics:", error);
+        }
     };
 
     useEffect(() => {
@@ -28,11 +32,7 @@ const ComicsPage = () => {
     }, [currentPage]);
 
     useEffect(() => {
-        if (searchTerm !== '') {
-            fetchComics(searchTerm);
-        } else {
-            fetchComics();
-        }
+        fetchComics(searchTerm);
     }, [searchTerm]);
 
     const handlePageChange = (newPage) => {
@@ -42,15 +42,15 @@ const ComicsPage = () => {
 
     return (
         <div>
-
             <div className="page-button-container">
-            <input 
-                type="text" 
-                placeholder="Rechercher un comic..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="search-bar"
-            />
+                <input 
+                    type="text" 
+                    placeholder="Rechercher un comic..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="search-bar"
+                />
+                
                 <button 
                     className="page-button"
                     onClick={() => handlePageChange(currentPage - 1)} 
@@ -58,6 +58,7 @@ const ComicsPage = () => {
                 >
                     Page précédente
                 </button>
+                
                 <button 
                     className="page-button"
                     onClick={() => handlePageChange(currentPage + 1)} 
@@ -66,17 +67,18 @@ const ComicsPage = () => {
                     Page suivante
                 </button>
             </div>
+            
             <div className="comics-container">
-                {comics.map((comic) => (
+                {comics.map(comic => (
                     <Link to={`/comic/${comic._id}`} key={comic._id} className="comics-card-link">
                         <div className="comics-card">
                             <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
                             <h3>{comic.title}</h3>
-                            {/* <p>{comic.description}</p> */}
                         </div>
                     </Link>
                 ))}
             </div>
+            
             <div className="page-button-container">
                 <button 
                     className="page-button"
@@ -85,6 +87,7 @@ const ComicsPage = () => {
                 >
                     Page précédente
                 </button>
+                
                 <button 
                     className="page-button"
                     onClick={() => handlePageChange(currentPage + 1)} 

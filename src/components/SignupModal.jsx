@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../CSS/Modal.css"
-import { useState } from 'react'
-
 
 function SignupModal({ isOpen, onClose, onSwitch, handleSignupSubmit }) {
     const [email, setEmail] = useState('');
@@ -17,22 +15,21 @@ function SignupModal({ isOpen, onClose, onSwitch, handleSignupSubmit }) {
         event.preventDefault();
         setError(''); 
 
+        if (!email) {
+            setError("Merci de renseigner un email valide.");
+            return;
+        }        
+
+        if (!password) {
+            setError("Merci de renseigner un mot de passe valide.");
+            return;
+        }
+
         try {
             await handleSignupSubmit(event, email, password);
-            if (email && password) {
-                handleClose(); 
-            } else if (!email){
-                setError("merci de renseigner un email valide");
-            }        
-            else if (!password){
-                setError("merci de renseigner un pasword valide");
-            }
-        } catch (error) {
-            if (error.response) {
-                setError(error.response.data.message); 
-            } else {
-                setError("Une erreur s'est produite lors de l'inscription.");
-            }
+            handleClose(); 
+        } catch (err) {
+            setError(err.response?.data.message || "Une erreur s'est produite lors de l'inscription.");
         }
     };
 
@@ -40,7 +37,7 @@ function SignupModal({ isOpen, onClose, onSwitch, handleSignupSubmit }) {
 
     return (
         <div className="modal-overlay" onClick={handleClose}>
-            <div className="modal-content" onClick={(event) => event.stopPropagation()}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <h2>Inscription</h2>
                 <form onSubmit={handleSubmit}>
                     <input
